@@ -1,0 +1,2 @@
+help - Get information about bot commands and their usages
+t - Translate text! Usage: /t <from> - <to> - <text>
