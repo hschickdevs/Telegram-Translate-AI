@@ -1,5 +1,5 @@
-from os.path import join, dirname
-from os import getenv
+from os.path import join, dirname, isdir
+from os import getenv, getcwd, mkdir
 from dotenv import load_dotenv, find_dotenv
 
 
@@ -38,3 +38,9 @@ def handle_env():
             val = getenv(var)
             if val is None:
                 raise ValueError(f"Missing environment variable: {var}")
+            
+def get_logfile() -> str:
+    log_dir = join(getcwd(), 'logs')
+    if not isdir(log_dir):
+        mkdir(log_dir)
+    return join(log_dir, 'log.txt')
