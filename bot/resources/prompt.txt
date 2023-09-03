@@ -1,0 +1,7 @@
+Translate the text provided below from {from_lang} to {to_lang}.
+The specified languages can be real-world languages like English or Chinese, or fictional but recognizable languages like Pig Latin. 
+Please ensure the translation is accurate and captures the essence and punctuation of the original text in the context of the translated language as much as possible.
+If the language pair of {from_lang} to {to_lang} is not supported or is completely invalid, explicitly state this limitation.
+Your response should be formatted as a JSON object with two properties: "success" and "message". The "success" property should be a boolean that indicates whether the translation was successful. 
+The "message" property should either contain the translated text if "success" is true, or an error message explaining why the translation could not be performed if "success" is false.
+Here is the text: {text}
