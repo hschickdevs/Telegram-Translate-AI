@@ -39,11 +39,11 @@
     <a href="#about-the-project"><strong>Learn More »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">Try Demo</a>
+    <a href="#">Try Demo</a>
     ·
     <a href="#bot-commands">Bot Commands</a>
     ·
-    <a href="https://github.com/hschickdevs/Telegram-Translate-AI/issues">Contribute</a>
+    <a href="#contributing">Contribute</a>
   </p>
 </div>
 
@@ -194,14 +194,14 @@ If you don't see any errors, the bot should now be running! Head to your bot on 
 
 _TODO ..._
 
+Use `/help` for now
+
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
 <!-- COST ESTIMATES -->
 ## Cost Estimates
-
-_TODO ..._
 
 This is how much the bot will cost to run and use:
 - Hosted on Heroku (1 Dyno)
