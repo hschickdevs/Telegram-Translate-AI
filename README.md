@@ -60,8 +60,8 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#quick-setup">Quick Setup</a></li>
+        <li><a href="#advanced-setup">Advanced Setup</a></li>
       </ul>
     </li>
     <li><a href="#bot-commands">Bot Commands</a></li>
@@ -100,27 +100,40 @@ To get your own local instance of the Telegram AI translation bot up and running
 
 ### Prerequisites
 
-Before you begin, make sure you have Python 3.9+ and pip installed on your system.
+Before you continue, you will need to do the following:
 
-Check your Python version in your command prompt using:
+1. Get an **OpenAI API key**. If you don't know how to do so, use [**this guide**](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt) for reference.
 
-* **MacOS/Linux:**
-  ```sh
-  python3 -V
-  ```
+2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
 
-* **Windows:**
-  ```sh
-  python -V
-  ```
-  _or_
-  ```sh
-  py -V
-  ```
+### Quick Setup
 
-If you do not have Python 3.9+ installed, you can download it [**🔗 here**](https://www.python.org/downloads/).
+The easiest way to get started is to deploy the bot onto \<PLATFORM> using \<DOCKER?>. To do so, follow these steps:
 
-### Installation
+
+### Advanced Setup
+
+If you'd prefer to deploy the bot manually, follow the folowing steps in your preferred local or cloud environment. For the sake of this guide, we will be deploying the bot locally in a UNIX environment (On a MacOS or Linux machine):
+
+1. Before you begin, make sure you have Python 3.9+ and pip installed on your system.
+
+    Check your Python version in your command prompt using:
+
+    * **MacOS/Linux:**
+      ```sh
+      python3 -V
+      ```
+
+    * **Windows:**
+      ```sh
+      python -V
+      ```
+      _or_
+      ```sh
+      py -V
+      ```
+
+    If you do not have Python 3.9+ installed, you can download it [**🔗 here**](https://www.python.org/downloads/).
 
 To install the bot, follow these steps:
 
@@ -141,16 +154,6 @@ To install the bot, follow these steps:
    ```sh
    pip install -r requirements.txt
    ```
-
-### Deployment
-
-Once you have successfully installed the bot, you can deploy it to your preferred environment (be that local or in the cloud).
-
-For the sake of this guide, we will be deploying the bot locally in a UNIX environment (On a MacOS or Linux machine):
-
-1. Get an OpenAI API Key. If you don't know how to do so, use [**this guide**](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt) for reference.
-
-2. Create a new Telegram bot and get the _bot token_ using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
 
 3. Set environment variables. The following environment variables should be set:
 
