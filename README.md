@@ -28,7 +28,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="docs/img/logo-oai.png" alt="Logo" width="150" height="150">
+    <img src="docs/logo-oai.png" alt="Logo" width="150" height="150">
   </a>
 
   <h3 align="center">Telegram-Translate-AI</h3>
@@ -77,7 +77,7 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
-![PRODUCT DEMO/GIF](docs/img/demo.gif)
+![PRODUCT DEMO/GIF](docs/demo.gif)
 
 This Telegram bot leverages the power of OpenAI's GPT language models to provide advanced text translations. Unlike traditional translation services like Google Translate, this bot offers several unique advantages:
 
@@ -166,13 +166,19 @@ For the sake of this guide, we will be deploying the bot locally in a UNIX envir
 
     * `mv .env.example .env`
 
- 4. Make sure that you are in the root directory of the project (_type `pwd`_), and then run the following command to start the bot:
+4. Make sure that you are in the root directory of the project (_type `pwd`_), and then run the following command to start the bot:
 
     ```sh
     python3 -m src
     ```
 
     > **Note:** If you are using Windows, you may need to use `python -m src` or `py -m src` instead.
+
+5. Upload the bot commands to botfather for command hits.
+
+    1. Copy the contents of [**`commands.txt`**](/commands.txt).
+
+    2. See this guide to learn how to [**upload the commands**](docs/upload-commands.gif) to your bot.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
