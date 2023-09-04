@@ -9,9 +9,17 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
+
+<p align="center">
+  <img src="https://img.shields.io/badge/Made%20with-Python3-yellow?style=for-the-badge" alt="Made with Python3" />
+  <a href="https://github.com/hschickdevs/Telegram-Translate-AI/stargazers"><img src="https://img.shields.io/github/stars/hschickdevs/Telegram-Translate-AI.svg?style=for-the-badge&color=219ED9" alt="Stargazers" /></a>
+  <a href="https://github.com/hschickdevs/Telegram-Translate-AI/blob/main/LICENSE"><img src="https://img.shields.io/github/license/hschickdevs/Telegram-Translate-AI.svg?style=for-the-badge&color=green" alt="GPLv3 License" /></a>
+</p>
+
+<!-- 
 ![Madewith][madewith-shield]
 [![Stargazers][stars-shield]][stars-url]
-[![GPLv3 License][license-shield]][license-url]
+[![GPLv3 License][license-shield]][license-url] -->
 <!-- [![Issues][issues-shield]][issues-url]
 [![Contributors][contributors-shield]][contributors-url] -->
 <!-- [![Version][version-shield]][version-url] -->
