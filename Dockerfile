@@ -1,8 +1,8 @@
 # Docker image location:
 # https://hub.docker.com/repository/docker/hschickdevs/telegram-translate-ai/general
 
-# Image URL for Google Run (https://console.cloud.google.com/run/create):
-# docker.io/telegram-translate-ai:latest
+# Image URL for GCP Compute:
+# hschickdevs/telegram-translate-ai:latest
 
 # How to install docker engine on Ubuntu:
 # https://docs.docker.com/engine/install/ubuntu/ 
