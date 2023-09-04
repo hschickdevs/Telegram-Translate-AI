@@ -164,7 +164,7 @@ For the sake of this guide, we will be deploying the bot locally in a UNIX envir
 
    To set your environment variables, rename the file called [`.env.example`](/.env.example) in the root directory of the project, and then replace the value contents with your tokens and model.
 
-    * `mv .env.example .env`
+    > **Note:** The existing values in the `.env.example` file are placeholders and are for demonstration purposes only. You should **never** share your API keys or tokens with anyone.
 
 4. Make sure that you are in the root directory of the project (_type `pwd`_), and then run the following command to start the bot:
 
