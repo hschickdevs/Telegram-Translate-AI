@@ -39,11 +39,11 @@
     <a href="#about-the-project"><strong>Learn More »</strong></a>
     <br />
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">Try Demo</a>
+    <a href="#">Try Demo</a>
     ·
     <a href="#bot-commands">Bot Commands</a>
     ·
-    <a href="https://github.com/hschickdevs/Telegram-Translate-AI/issues">Contribute</a>
+    <a href="#contributing">Contribute</a>
   </p>
 </div>
 
@@ -60,8 +60,8 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
-        <li><a href="#installation">Installation</a></li>
-        <li><a href="#deployment">Deployment</a></li>
+        <li><a href="#quick-setup">Quick Setup</a></li>
+        <li><a href="#advanced-setup">Advanced Setup</a></li>
       </ul>
     </li>
     <li><a href="#bot-commands">Bot Commands</a></li>
@@ -100,31 +100,50 @@ To get your own local instance of the Telegram AI translation bot up and running
 
 ### Prerequisites
 
-Before you begin, make sure you have Python 3.9+ and pip installed on your system.
+Before you continue, you will need to do the following:
 
-Check your Python version in your command prompt using:
+1. Get an **OpenAI API key**. If you don't know how to do so, use [**this guide**](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt) for reference.
 
-* **MacOS/Linux:**
-  ```sh
-  python3 -V
-  ```
+2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
 
-* **Windows:**
-  ```sh
-  python -V
-  ```
-  _or_
-  ```sh
-  py -V
-  ```
+3. Upload the bot commands to botfather for command hits on your new bot.
 
-If you do not have Python 3.9+ installed, you can download it [**🔗 here**](https://www.python.org/downloads/).
+    1. Copy the contents of [**`commands.txt`**](/commands.txt).
 
-### Installation
+    2. See this guide to learn how to [**upload the commands**](docs/upload-commands.gif) to your bot.
 
-To install the bot, follow these steps:
+### Quick Setup
 
-1. Clone the repo:
+Although there isn't a completely simple way to set up this bot, the easiest way to do so is by deploy the Docker image on Google Cloud Platform. If you don't know what a Docker image is, don't worry, the following steps will guide you through the process of deploying the bot to the cloud using Google Cloud Platform:
+
+[**🔗VIEW THE GUIDE HERE**](docs/gcp-deploy/gcp-deploy.md)
+
+
+### Advanced Setup
+
+If you'd prefer to deploy the bot manually, follow the folowing steps in your preferred local or cloud environment. For the sake of this guide, we will be deploying the bot locally in a UNIX environment (On a MacOS or Linux machine):
+
+1. Before you begin, make sure you have Python 3.9+ and pip installed on your system.
+
+    Check your Python version in your command prompt using:
+
+    * **MacOS/Linux:**
+      ```sh
+      python3 -V
+      ```
+
+    * **Windows:**
+      ```sh
+      python -V
+      ```
+      _or_
+      ```sh
+      py -V
+      ```
+
+    If you do not have Python 3.9+ installed, you can download it [**🔗 here**](https://www.python.org/downloads/).
+
+2. Clone the repo:
 
    ```sh
    git clone https://github.com/hschickdevs/Telegram-Translate-AI.git
@@ -141,16 +160,6 @@ To install the bot, follow these steps:
    ```sh
    pip install -r requirements.txt
    ```
-
-### Deployment
-
-Once you have successfully installed the bot, you can deploy it to your preferred environment (be that local or in the cloud).
-
-For the sake of this guide, we will be deploying the bot locally in a UNIX environment (On a MacOS or Linux machine):
-
-1. Get an OpenAI API Key. If you don't know how to do so, use [**this guide**](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt) for reference.
-
-2. Create a new Telegram bot and get the _bot token_ using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
 
 3. Set environment variables. The following environment variables should be set:
 
@@ -174,11 +183,7 @@ For the sake of this guide, we will be deploying the bot locally in a UNIX envir
 
     > **Note:** If you are using Windows, you may need to use `python -m src` or `py -m src` instead.
 
-5. Upload the bot commands to botfather for command hits.
-
-    1. Copy the contents of [**`commands.txt`**](/commands.txt).
-
-    2. See this guide to learn how to [**upload the commands**](docs/upload-commands.gif) to your bot.
+If you don't see any errors, the bot should now be running! Head to your bot on Telegram and test it out.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -187,7 +192,9 @@ For the sake of this guide, we will be deploying the bot locally in a UNIX envir
 <!-- USAGE EXAMPLES -->
 ## Bot Commands
 
-...
+_TODO ..._
+
+Use `/help` for now
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
