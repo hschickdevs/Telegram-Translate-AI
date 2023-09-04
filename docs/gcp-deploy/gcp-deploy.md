@@ -1,6 +1,6 @@
 
 <div align="center">
-    <img src="./header.png" style="border-radius: 5%;">
+    <img alt="header" src="./header.png" style="border-radius: 5%;">
 </div>
 
 ## The following guide will teach you how to deploy the bot to the cloud using Google Cloud, a robust and cost effective hosting service:
