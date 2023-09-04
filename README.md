@@ -41,7 +41,7 @@
     <br />
     <a href="https://github.com/othneildrew/Best-README-Template">Try Demo</a>
     ·
-    <a href="#usage">Bot Commands</a>
+    <a href="#bot-commands">Bot Commands</a>
     ·
     <a href="https://github.com/hschickdevs/Telegram-Translate-AI/issues">Contribute</a>
   </p>
@@ -55,9 +55,6 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -67,19 +64,18 @@
         <li><a href="#deployment">Deployment</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a></li>
+    <li><a href="#bot-commands">Bot Commands</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgments">Acknowledgments</a></li>
   </ol>
 </details>
 
 
 
 <!-- ABOUT THE PROJECT -->
-## About The Project
+## About the Project
 
 ![PRODUCT DEMO/GIF](docs/img/demo.gif)
 
