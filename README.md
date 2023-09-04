@@ -106,9 +106,17 @@ Before you continue, you will need to do the following:
 
 2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
 
+3. Upload the bot commands to botfather for command hits on your new bot.
+
+    1. Copy the contents of [**`commands.txt`**](/commands.txt).
+
+    2. See this guide to learn how to [**upload the commands**](docs/upload-commands.gif) to your bot.
+
 ### Quick Setup
 
-The easiest way to get started is to deploy the bot onto \<PLATFORM> using \<DOCKER?>. To do so, follow these steps:
+Although there isn't a completely simple way to set up this bot, the easiest way to do so is by deploy the Docker image on Google Cloud Platform. If you don't know what a Docker image is, don't worry, the following steps will guide you through the process of deploying the bot to the cloud using Google Cloud Platform:
+
+[**🔗VIEW THE GUIDE HERE**](docs/gcp-deploy/gcp-deploy.md)
 
 
 ### Advanced Setup
@@ -135,9 +143,7 @@ If you'd prefer to deploy the bot manually, follow the folowing steps in your pr
 
     If you do not have Python 3.9+ installed, you can download it [**🔗 here**](https://www.python.org/downloads/).
 
-To install the bot, follow these steps:
-
-1. Clone the repo:
+2. Clone the repo:
 
    ```sh
    git clone https://github.com/hschickdevs/Telegram-Translate-AI.git
@@ -177,11 +183,7 @@ To install the bot, follow these steps:
 
     > **Note:** If you are using Windows, you may need to use `python -m src` or `py -m src` instead.
 
-5. Upload the bot commands to botfather for command hits.
-
-    1. Copy the contents of [**`commands.txt`**](/commands.txt).
-
-    2. See this guide to learn how to [**upload the commands**](docs/upload-commands.gif) to your bot.
+If you don't see any errors, the bot should now be running! Head to your bot on Telegram and test it out.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -190,7 +192,7 @@ To install the bot, follow these steps:
 <!-- USAGE EXAMPLES -->
 ## Bot Commands
 
-...
+_TODO ..._
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -198,6 +200,8 @@ To install the bot, follow these steps:
 
 <!-- COST ESTIMATES -->
 ## Cost Estimates
+
+_TODO ..._
 
 This is how much the bot will cost to run and use:
 - Hosted on Heroku (1 Dyno)
