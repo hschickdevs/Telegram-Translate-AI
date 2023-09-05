@@ -173,7 +173,7 @@ If you'd prefer to deploy the bot manually, follow the folowing steps in your pr
 
    > **Note:** The `MODEL` variable is optional and defaults to `gpt-3.5-turbo`. If you have the plus subscription, you can set this to `gpt-4` for better results.
 
-   To set your environment variables, rename the file called [`.env.example`](/.env.example) in the root directory of the project, and then replace the value contents with your tokens and model.
+   To set your environment variables, rename the file called [`.env.example`](/.env.example) in the root directory of the project to `.env`, and then replace the value contents with your tokens and model.
 
     > **Note:** The existing values in the `.env.example` file are placeholders and are for demonstration purposes only. You should **never** share your API keys or tokens with anyone.
 
@@ -194,9 +194,44 @@ If you don't see any errors, the bot should now be running! Head to your bot on 
 <!-- USAGE EXAMPLES -->
 ## Bot Commands
 
-_TODO ..._
+#### `/help`
 
-Use `/help` for now
+Returns all available commands and their descriptions.
+
+___
+
+#### `/t <source (context)> - <target (context)> - <text>`
+
+📖 Translate text from one language to another. 
+
+> The first two "-" symbols are used as the delimiter/separator for the source language & context, target language & context, and text. As long as you provide the first two "-" symbols between source & target and target & text, you can use as many as you want in the text.
+
+| Parameter          | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| source (context)   | The source language and context (e.g., dialect) from which you want to translate.                |
+| target (context)   | The target language and context (e.g., dialect) to which you want to translate.                  |
+| text               | The text you want to translate.                                                                  |
+
+_For example, the following command translates English to Spanish in the dialect of Madrid, Spain (as opposed to Mexico City dialect):_
+
+`/t English - Spanish (Madrid Dialect) - Hi there, I'm a bot!`
+
+___
+
+#### `/session <source (context)> - <target (context)>`
+
+🔄 Start a continuous translation session. In this mode, every following message you send will be automatically translated to the specified target language.
+
+| Parameter          | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| source (context)   | The source language and context (e.g., dialect) from which you want to translate continuously.   |
+| target (context)   | The target language and context (e.g., dialect) to which you want to translate continuously.     |
+
+_For example, the following command starts a continuous translation session from English to Spanish in the Mexico City dialect:_
+
+`/session English - Spanish (Mexico City Dialect)`
+
+🛑 To end a continuous session, click the "Quit Session" button on the inline keyboard below any of the translated messages.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -232,13 +267,14 @@ Thanks to these awesome tools and frameworks for aiding in the development of th
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Add translation sessions
+- [x] Add detailed documentation
+- [x] Add Docker image
+- [ ] Add bot Demo feature 
+- [ ] Add group translation sessions
+- [ ] Multi-platform Support
+    - [ ] Whatsapp
+    - [ ] Discord
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
