@@ -267,13 +267,14 @@ Thanks to these awesome tools and frameworks for aiding in the development of th
 <!-- ROADMAP -->
 ## Roadmap
 
-- [x] Add Changelog
-- [x] Add back to top links
-- [ ] Add Additional Templates w/ Examples
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [x] Add translation sessions
+- [x] Add detailed documentation
+- [x] Add Docker image
+- [ ] Add bot Demo feature 
+- [ ] Add group translation sessions
+- [ ] Multi-platform Support
+    - [ ] Whatsapp
+    - [ ] Discord
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
