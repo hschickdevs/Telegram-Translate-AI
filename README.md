@@ -202,7 +202,7 @@ ___
 
 #### `/t <source (context)> - <target (context)> - <text>`
 
-(`/t` or `/translate`) 📖 Translate text from one language to another. 
+(Use **/t** or **/translate**) 📖 Translate text from one language to another. 
 
 > The first two "-" symbols are used as the delimiter/separator for the source language & context, target language & context, and text. As long as you provide the first two "-" symbols between source & target and target & text, you can use as many as you want in the text.
 
@@ -220,7 +220,7 @@ ___
 
 #### `/s <source (context)> - <target (context)>`
 
-(`/s` or `/session`) 🔄 Start a continuous translation session. In this mode, every following message you send will be automatically translated to the specified target language.
+(Use **/s** or **/session**) 🔄 Start a continuous translation session. In this mode, every following message you send will be automatically translated to the specified target language.
 
 | Parameter          | Description                                                                                     |
 |--------------------|-------------------------------------------------------------------------------------------------|
