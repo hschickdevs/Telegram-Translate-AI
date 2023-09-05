@@ -173,7 +173,7 @@ If you'd prefer to deploy the bot manually, follow the folowing steps in your pr
 
    > **Note:** The `MODEL` variable is optional and defaults to `gpt-3.5-turbo`. If you have the plus subscription, you can set this to `gpt-4` for better results.
 
-   To set your environment variables, rename the file called [`.env.example`](/.env.example) in the root directory of the project, and then replace the value contents with your tokens and model.
+   To set your environment variables, rename the file called [`.env.example`](/.env.example) in the root directory of the project to `.env`, and then replace the value contents with your tokens and model.
 
     > **Note:** The existing values in the `.env.example` file are placeholders and are for demonstration purposes only. You should **never** share your API keys or tokens with anyone.
 
