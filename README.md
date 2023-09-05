@@ -194,9 +194,44 @@ If you don't see any errors, the bot should now be running! Head to your bot on 
 <!-- USAGE EXAMPLES -->
 ## Bot Commands
 
-_TODO ..._
+#### `/help`
 
-Use `/help` for now
+Returns all available commands and their descriptions.
+
+___
+
+#### `/t <source (context)> - <target (context)> - <text>`
+
+📖 Translate text from one language to another. 
+
+> The first two "-" symbols are used as the delimiter/separator for the source language & context, target language & context, and text. As long as you provide the first two "-" symbols between source & target and target & text, you can use as many as you want in the text.
+
+| Parameter          | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| source (context)   | The source language and context (e.g., dialect) from which you want to translate.                |
+| target (context)   | The target language and context (e.g., dialect) to which you want to translate.                  |
+| text               | The text you want to translate.                                                                  |
+
+_For example, the following command translates English to Spanish in the dialect of Madrid, Spain (as opposed to Mexico City dialect):_
+
+`/t English - Spanish (Madrid Dialect) - Hi there, I'm a bot!`
+
+___
+
+#### `/session <source (context)> - <target (context)>`
+
+🔄 Start a continuous translation session. In this mode, every following message you send will be automatically translated to the specified target language.
+
+| Parameter          | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| source (context)   | The source language and context (e.g., dialect) from which you want to translate continuously.   |
+| target (context)   | The target language and context (e.g., dialect) to which you want to translate continuously.     |
+
+_For example, the following command starts a continuous translation session from English to Spanish in the Mexico City dialect:_
+
+`/session English - Spanish (Mexico City Dialect)`
+
+🛑 To end a continuous session, click the "Quit Session" button on the inline keyboard below any of the translated messages.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
