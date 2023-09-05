@@ -19,7 +19,7 @@ class TranslateBot(TeleBot):
         def on_help(message):
             self.reply_to(message, get_command_template('help').format(bot_name=self.get_me().first_name), parse_mode='Markdown')
 
-        @self.message_handler(commands=['t'])
+        @self.message_handler(commands=['t', 'translate'])
         def on_translate(message):
             # Send initial "Processing translation..." message and store its message ID
             processing_msg = self.reply_to(message, "*Translating, please wait... ⏳*", parse_mode='Markdown')
@@ -53,7 +53,7 @@ class TranslateBot(TeleBot):
                                         text=get_command_template('translate-failure').format(error=err),
                                         parse_mode='Markdown')
                             
-        @self.message_handler(commands=['session'])
+        @self.message_handler(commands=['s', 'session'])
         def start_session(message):
             try:
                 from_lang, to_lang = self._parse_command(message.text)[:2]  # Parse only the first two
