@@ -104,6 +104,8 @@ Before you continue, you will need to do the following:
 
 1. Get an **OpenAI API key**. If you don't know how to do so, use [**this guide**](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt) for reference.
 
+    > Before sure to review the [pricing](https://openai.com/pricing/) for OpenAI's API in deciding which model to use. The default model is `gpt-3.5-turbo`, which is the cheaper option.
+
 2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
 
 3. Upload the bot commands to botfather for command hits on your new bot.
@@ -196,17 +198,6 @@ _TODO ..._
 
 Use `/help` for now
 
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-<!-- COST ESTIMATES -->
-## Cost Estimates
-
-This is how much the bot will cost to run and use:
-- Hosted on Heroku (1 Dyno)
-- 1,000 messages per month (each message is 1,000 tokens, about 1,000 words)
-- If using GPT-4 + $20/mo
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
