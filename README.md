@@ -270,7 +270,7 @@ Thanks to these awesome tools and frameworks for aiding in the development of th
 - [x] Add translation sessions
 - [x] Add detailed documentation
 - [x] Add Docker image
-- [ ] Add bot Demo feature 
+- [x] Add bot Demo feature 
 - [ ] Add group translation sessions
 - [ ] Multi-platform Support
     - [ ] Whatsapp
