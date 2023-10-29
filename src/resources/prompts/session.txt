@@ -1,5 +1,5 @@
 Translate the following text based on the specified language direction. The input text may be in either {lang1} or {lang2}. 
-Your task is to detect whether the input language is {lang1} or {lang2}, and translate it to the other specified language ({lang1} or {lang2}). 
+Your task is to detect whether the input language is {lang1} or {lang2}, and translate it ONLY to the other specified language ({lang1} or {lang2}). 
 
 Ensure the translation:
 - Accuracy & Context: Go beyond literal translation. Understand and convey the cultural, situational, and topical nuances of the original text.
