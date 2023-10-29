@@ -1,14 +1,7 @@
-from os.path import join, dirname, isdir
+from os.path import join, dirname, isdir, abspath
 from os import getenv, getcwd, mkdir
 from dotenv import load_dotenv, find_dotenv
-
-
-def get_prompt(text: str, from_lang: str, to_lang: str) -> str:
-    """
-    TODO: SHOULD FORMAT THE PROMPT WITH THE USER'S INPUT
-    """
-    with open(join(dirname(__file__), 'resources', 'prompt.txt'), 'r') as f:
-        return f.read().format(from_lang=from_lang, to_lang=to_lang, text=text)
+    
 
 
 def get_command_template(context: str) -> str:
@@ -44,3 +37,19 @@ def get_logfile() -> str:
     if not isdir(log_dir):
         mkdir(log_dir)
     return join(log_dir, 'log.txt')
+
+
+def get_commands() -> dict:
+    """Fetches the commands from the templates for the help command"""
+    commands = {}
+    
+    # Define the path to the commands.txt file
+    file_path = join(dirname(abspath(__file__)), '..', 'commands.txt')
+    
+    with open(file_path, 'r') as f:
+        for line in f.readlines():
+            # Splitting at the first '-' to separate command and description
+            command, description = line.strip().split(' - ', 1)
+            commands[command.strip()] = description.strip()
+            
+    return commands

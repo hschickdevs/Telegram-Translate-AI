@@ -1,11 +1,12 @@
 from .telegram import TranslateBot
 from .translator import Translator
-from .utils import handle_env
+from .utils import handle_env, get_commands
 from .logger import logger
 
 import threading
 from os import getenv
 from time import sleep
+from telebot import types
 
 RESTART_DELAY = 5  # The number of seconds to wait before restarting the bot after an error is thrown
 
@@ -19,7 +20,13 @@ if __name__ == "__main__":
     handle_env()
     
     bot = TranslateBot(getenv("BOT_TOKEN"), Translator(getenv("OPENAI_TOKEN")))
+    
+    # Set the bot commands:
+    user_commands = [types.BotCommand(command=command, description=description)
+                     for command, description in get_commands().items()]
+    bot.set_my_commands(user_commands)
 
+    # Start the bot
     while True:
         logger.info(f"Bot started with token {getenv('BOT_TOKEN')} ...")
 

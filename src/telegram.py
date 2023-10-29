@@ -18,6 +18,10 @@ class TranslateBot(TeleBot):
         @self.message_handler(commands=['help'])
         def on_help(message):
             self.reply_to(message, get_command_template('help').format(bot_name=self.get_me().first_name), parse_mode='Markdown')
+            
+        @self.message_handler(commands=['contact'])
+        def on_contact(message):
+            self.reply_to(message, get_command_template('contact').format(bot_name=self.get_me().first_name), parse_mode='Markdown')
 
         @self.message_handler(commands=['t', 'translate'])
         def on_translate(message):
@@ -56,28 +60,36 @@ class TranslateBot(TeleBot):
         @self.message_handler(commands=['s', 'session'])
         def start_session(message):
             try:
-                from_lang, to_lang = self._parse_command(message.text)[:2]  # Parse only the first two
+                lang1, lang2 = self._parse_command(message.text)[:2]  # Parse only the first two
             except:
-                self.reply_to(message, "*❌ Invalid command syntax - Please use /session <source lang> - <target lang>*", parse_mode='Markdown')
+                self.reply_to(message, 
+                              "*❌ Invalid command syntax.\n\nPlease use the following format:*\n`/session <language 1> - <language 2>`\n\n *Example:*\n`/session English - Spanish (Mexico City Dialect)`", 
+                              parse_mode='Markdown')
                 return
             
             try:
-                self.active_sessions[message.from_user.id] = {'from_lang': from_lang, 'to_lang': to_lang}
+                # Verify that the languages are supported with an attempted translation
+                response = self.translator.translate_session("Test text to verify the language pair.", 
+                                                             lang1, lang2, started=False)
+                if not response['success']:
+                    raise Exception(response['message'])
+                
+                self.active_sessions[message.chat.id] = {'lang1': lang1, 'lang2': lang2}
                 # markup = types.InlineKeyboardMarkup()
                 # markup.add(types.InlineKeyboardButton("Quit Session", callback_data="quit_session"))
                 self.reply_to(message, 
-                              get_command_template('session').format(from_lang=from_lang, to_lang=to_lang), 
-                              parse_mode='Markdown')  # , reply_markup=markup
-            except Exception:
-                self.reply_to(message, "*❌ Could not start session - please check your syntax and try again*", parse_mode='Markdown')
+                                get_command_template('session').format(lang1=lang1, lang2=lang2), 
+                                parse_mode='Markdown')  # , reply_markup=markup
+            except Exception as err:
+                self.reply_to(message, f"*❌ Could not start session - {err}*", parse_mode='Markdown')
 
         @self.message_handler(func=lambda message: True)  # This should be your last handler
         def generic_handler(message):
             # Generic handler to check and handle active sessions
-            user_id = message.from_user.id
-            if user_id in self.active_sessions:
-                from_lang = self.active_sessions[user_id]['from_lang']
-                to_lang = self.active_sessions[user_id]['to_lang']
+            chat_id = message.chat.id
+            if chat_id in self.active_sessions:
+                lang1 = self.active_sessions[chat_id]['lang1']
+                lang2 = self.active_sessions[chat_id]['lang2']
                 text = message.text
                 
                 # Send initial "Processing translation..." message and store its message ID
@@ -90,17 +102,19 @@ class TranslateBot(TeleBot):
                 
                 try:
                     # Call Translator
-                    data = self.translator.translate(text, from_lang, to_lang)
+                    data = self.translator.translate_session(text, language1=lang1, language2=lang2)
 
                     # Update message based on translation success status if response from API is successful
                     if data['success']:
-                        template = get_command_template('translate-success')
+                        # template = get_command_template('translate-success')
+                        text = f"`{data['message']}`"
                         self.edit_message_text(chat_id=message.chat.id,
-                                            message_id=processing_msg_id,
-                                            text=template.format(from_lang=from_lang,
-                                                                    to_lang=to_lang,
-                                                                    translated_text=data['message']),
-                                            parse_mode='Markdown', reply_markup=markup)
+                                               message_id=processing_msg_id,
+                                               text=text,
+                                            #    text=template.format(from_lang=from_lang,
+                                            #                         to_lang=to_lang,
+                                            #                         translated_text=data['message']),
+                                               parse_mode='Markdown', reply_markup=markup)
                     else:
                         raise Exception(data['message'])                            
                 except Exception as err:    
@@ -111,21 +125,21 @@ class TranslateBot(TeleBot):
 
         @self.callback_query_handler(func=lambda call: call.data == 'quit_session')
         def end_session(call):
-            user_id = call.from_user.id
-            if user_id in self.active_sessions:
-                from_lang = self.active_sessions[user_id]['from_lang']
-                to_lang = self.active_sessions[user_id]['to_lang']
+            chat_id = call.message.chat.id
+            if chat_id in self.active_sessions:
+                lang1 = self.active_sessions[chat_id]['lang1']
+                lang2 = self.active_sessions[chat_id]['lang2']
                 
                 # Remove the "Quit Session" button
                 self.edit_message_reply_markup(call.message.chat.id, call.message.message_id, reply_markup=None)
                 
                 # Append "Session Ended" to the existing message and remove the "Quit Session" button
-                text = f"*🛑 {from_lang} to {to_lang} Translation Session Ended.*"
+                text = f"*🛑 Translation Session Ended for {lang1} and {lang2}.*"
                 self.send_message(chat_id=call.message.chat.id,
                                     text=text,
                                     parse_mode='Markdown')
                 
-                del self.active_sessions[user_id]
+                del self.active_sessions[chat_id]
                 self.answer_callback_query(call.id, "Session ended.")
 
     @staticmethod
@@ -137,7 +151,7 @@ class TranslateBot(TeleBot):
             text (str): The message.text, expected in the format of /t from_lang - to_lang - text
 
         Returns:
-            list: The parsed message in the order of [from_lang, to_lang, text]
+            list: The parsed message in the order of [lang1, lang2, text]
         """
         # Initial split to separate the command from the rest of the text
         cmd, rest_of_text = text.split(' ', 1)
