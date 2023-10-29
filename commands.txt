@@ -1,3 +1,4 @@
 help - Get information about bot commands and their usages
 t - (or /translate) Translate text | Usage: /t <source lang> - <target lang> - <text>
-s - (or /session) Start a continuous translation session | Usage: /session <source lang> - <target lang>
+s - (or /session) Start a continuous translation session | Usage: /session <language 1> - <language 2>
+contact - Get in touch with the developer

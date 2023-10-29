@@ -87,7 +87,7 @@ This Telegram bot leverages the power of OpenAI's GPT language models to provide
 
 3. **Typo Detection**: The advanced AI model automatically detects typos and corrects them, ensuring the translation is as accurate as possible.
 
-<!-- Head to [Installation & Deployment]() to get started. -->
+> 💡 **Tip:** This bot can be used in group chats as well as private chats for live translations!
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -107,12 +107,6 @@ Before you continue, you will need to do the following:
     > Before sure to review the [pricing](https://openai.com/pricing/) for OpenAI's API in deciding which model to use. The default model is `gpt-3.5-turbo`, which is the cheaper option.
 
 2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
-
-3. Upload the bot commands to botfather for command hits on your new bot.
-
-    1. Copy the contents of [**`commands.txt`**](/commands.txt).
-
-    2. See this guide to learn how to [**upload the commands**](docs/upload-commands.gif) to your bot.
 
 ### Quick Setup
 
@@ -218,16 +212,16 @@ _For example, the following command translates English to Spanish in the dialect
 
 ___
 
-#### `/s <source (context)> - <target (context)>`
+#### `/s <language1 (context)> - <language2 (context)>`
 
-(Use **/s** or **/session**) 🔄 Start a continuous translation session. In this mode, every following message you send will be automatically translated to the specified target language.
+(Use **/s** or **/session**) 🔄 Start a continuous translation session. In this mode, every following message you send will be automatically language detected and translated to the other language in the pair.
 
 | Parameter          | Description                                                                                     |
 |--------------------|-------------------------------------------------------------------------------------------------|
-| source (context)   | The source language and context (e.g., dialect) from which you want to translate continuously.   |
-| target (context)   | The target language and context (e.g., dialect) to which you want to translate continuously.     |
+| language1 (context)   | The first language and context (e.g., dialect) in the translation pair.   |
+| target (context)   | The second language and context (e.g., dialect) in the translation pair.     |
 
-_For example, the following command starts a continuous translation session from English to Spanish in the Mexico City dialect:_
+_For example, the following command starts a continuous translation session with English and Spanish in the Mexico City dialect:_
 
 `/session English - Spanish (Mexico City Dialect)`
 
@@ -271,7 +265,7 @@ Thanks to these awesome tools and frameworks for aiding in the development of th
 - [x] Add detailed documentation
 - [x] Add Docker image
 - [x] Add bot Demo feature 
-- [ ] Add group translation sessions
+- [X] Add group translation sessions
 - [ ] Multi-platform Support
     - [ ] Whatsapp
     - [ ] Discord

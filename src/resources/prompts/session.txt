@@ -1,0 +1,25 @@
+Translate the following text based on the specified language direction. The input text may be in either {lang1} or {lang2}. Your task is to detect the language of the input and translate it to the other specified language. The languages can range from real-world ones like English or Chinese to fictional but recognizable ones like Pig Latin.
+
+Ensure the translation:
+- Accuracy & Context: Go beyond literal translation. Understand and convey the cultural, situational, and topical nuances of the original text.
+- Essence & Punctuation: Preserve the tone, mood, and intent. Adapt punctuation to align with the target language's norms without losing the original's meaning.
+- Dialects & Nuances: When a specific dialect is mentioned, tailor the translation to that variation. Adjust vocabulary and sentence structures as needed.
+- Idioms: Translate the sentiment of idiomatic or colloquial phrases, not just the words.
+- Technical Vocabulary: Use equivalent terms and punctuation in the target language for technical or specialized vocabulary. If no direct equivalent exists, choose a close match or provide a brief explanation. If typos are identified, do your best to fix these as needed.
+
+If the translation is successful, format the response as JSON with the following keys:
+- "success": True
+- "message": <translated_text>
+
+If there's an error or the language pair {lang1} and {lang2} is invalid, format the response as JSON with the following keys:
+- "success": False
+- "message": <reason_for_error>
+
+The only possible reason for invalid language pairs include:
+- One or both languages do not exist in the real world or in the fictional universe. If this is the case, it should be stated in the reason for error.
+Otherwise, you must do your best to translate the text regardless. 
+If the "started" value below is True, then you must attempt to translate the text regardless. This means that the language pair has already been verified.
+
+Started: {started}
+
+Text to be translated: {text}

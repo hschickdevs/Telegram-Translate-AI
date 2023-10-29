@@ -1,3 +1,5 @@
 *🔄 Continuous Translation Session Started*
 
-You've entered a continuous translation session from `{from_lang}` to `{to_lang}`. All of your messages will be automatically translated. 👇
+_Tip: You can click on the translated text to copy it to your clipboard._
+
+All messages will be automatically detected and translated between `{lang1}` and `{lang2}` 👇
