@@ -219,7 +219,7 @@ ___
 | Parameter          | Description                                                                                     |
 |--------------------|-------------------------------------------------------------------------------------------------|
 | language1 (context)   | The first language and context (e.g., dialect) in the translation pair.   |
-| target (context)   | The second language and context (e.g., dialect) in the translation pair.     |
+| language2 (context)   | The second language and context (e.g., dialect) in the translation pair.     |
 
 _For example, the following command starts a continuous translation session with English and Spanish in the Mexico City dialect:_
 
