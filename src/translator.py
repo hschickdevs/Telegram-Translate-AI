@@ -4,6 +4,8 @@ from os.path import join, dirname, isdir
 from os import getenv, getcwd, mkdir
 from dotenv import load_dotenv, find_dotenv
 
+from .logger import logger
+
 
 class Translator:
     def __init__(self, api_key: str, model: str = "gpt-3.5-turbo"):
@@ -31,7 +33,11 @@ class Translator:
             model=self.model,
             messages=[{"role": "user", "content": prompt}]
         )
-        return loads(response["choices"][0]["message"]["content"])
+        try:
+            return loads(response["choices"][0]["message"]["content"])
+        except Exception as err:
+            logger.error(f"Received an error while parsing the response from the API: {str(err)}\nWith response: {response}\nFor prompt: {prompt}")
+            return {"success": False, "message": f"API response could not be loaded (see logs): {str(err)}"}
 
     def translate(self, text: str, source_lang: str, target_lang: str) -> dict:
         """

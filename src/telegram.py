@@ -69,7 +69,7 @@ class TranslateBot(TeleBot):
             
             try:
                 # Verify that the languages are supported with an attempted translation
-                response = self.translator.translate_session("Test text to verify the language pair.", 
+                response = self.translator.translate_session("This is a testing sentence to verify the language pair.", 
                                                              lang1, lang2, started=False)
                 if not response['success']:
                     raise Exception(response['message'])
