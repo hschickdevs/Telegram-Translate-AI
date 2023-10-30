@@ -12,11 +12,11 @@ If the translation is successful, format the response as JSON with the following
 - "success": True
 - "message": <translated_text>
 
-If there's an error or the language pair {lang1} and {lang2} is invalid, format the response as JSON with the following keys:
+If there's an error, format the response as JSON with the following keys:
 - "success": False
 - "message": <reason_for_error>
 
-The only possible reason for invalid language pairs include:
+The only possible reason for an error should be:
 - One or both languages do not exist in the real world or in the fictional universe. If this is the case, it should be stated in the reason for error.
 Otherwise, you must do your best to translate the text regardless. 
 If the "started" value below is True, then you must attempt to translate the text regardless. This means that the language pair has already been verified.
