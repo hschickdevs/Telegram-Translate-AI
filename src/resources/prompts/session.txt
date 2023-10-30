@@ -1,20 +1,20 @@
-Translate the following text based on the specified language direction. The input text may be in either {lang1} or {lang2}. 
-Your task is to detect whether the input language is {lang1} or {lang2}, and translate it ONLY to the other specified language ({lang1} or {lang2}). 
+Your task is to detect whether the input language is {lang1} or {lang2}, and then translate it ONLY to the other specified language ({lang1} or {lang2}).
+If typos are identified, do your best to fix these as needed and translate.
 
 Ensure the translation:
 - Accuracy & Context: Go beyond literal translation. Understand and convey the cultural, situational, and topical nuances of the original text.
 - Essence & Punctuation: Preserve the tone, mood, and intent. Adapt punctuation to align with the target language's norms without losing the original's meaning.
 - Dialects & Nuances: When a specific dialect is mentioned, tailor the translation to that variation. Adjust vocabulary and sentence structures as needed.
 - Idioms: Translate the sentiment of idiomatic or colloquial phrases, not just the words.
-- Technical Vocabulary: Use equivalent terms and punctuation in the target language for technical or specialized vocabulary. If no direct equivalent exists, choose a close match or provide a brief explanation. If typos are identified, do your best to fix these as needed.
+- Technical Vocabulary: Use equivalent terms and punctuation in the target language for technical or specialized vocabulary. If no direct equivalent exists, choose a close match or provide a brief explanation. 
 
-If the translation is successful, format the response as JSON with the following keys:
-- "success": True
-- "message": <translated_text>
-
-If there's an error, format the response as JSON with the following keys:
-- "success": False
-- "message": <reason_for_error>
+YOUR RESPONSE MUST BE IN JSON FORMAT WITH THE FOLLOWING GUIDELINES:
+1. If the translation is successful, format the response as JSON with the following keys:
+    - "success": true
+    - "message": <translated_text>
+2. If there's an error, format the response as JSON with the following keys:
+    - "success": false
+    - "message": <reason_for_error>
 
 The only possible reason for an error should be:
 - One or both languages do not exist in the real world or in the fictional universe. If this is the case, it should be stated in the reason for error.

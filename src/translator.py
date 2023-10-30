@@ -33,6 +33,11 @@ class Translator:
             model=self.model,
             messages=[{"role": "user", "content": prompt}]
         )
+        
+        # TODO: Handle 502 errors
+        print("Response:", response)
+        print("Response Content:", response["choices"][0]["message"]["content"])
+        
         try:
             return loads(response["choices"][0]["message"]["content"])
         except Exception as err:

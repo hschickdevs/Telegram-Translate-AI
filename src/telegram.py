@@ -69,10 +69,10 @@ class TranslateBot(TeleBot):
             
             try:
                 # Verify that the languages are supported with an attempted translation
-                response = self.translator.translate_session("This is a testing sentence to verify the language pair.", 
-                                                             lang1, lang2, started=False)
-                if not response['success']:
-                    raise Exception(response['message'])
+                # response = self.translator.translate_session("This is a testing sentence to verify the language pair.", 
+                #                                              lang1, lang2, started=False)
+                # if not response['success']:
+                #     raise Exception(response['message'])
                 
                 self.active_sessions[message.chat.id] = {'lang1': lang1, 'lang2': lang2}
                 # markup = types.InlineKeyboardMarkup()
@@ -102,7 +102,7 @@ class TranslateBot(TeleBot):
                 
                 try:
                     # Call Translator
-                    data = self.translator.translate_session(text, language1=lang1, language2=lang2)
+                    data = self.translator.translate_session(text, language1=lang1, language2=lang2, started=True)
 
                     # Update message based on translation success status if response from API is successful
                     if data['success']:
