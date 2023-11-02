@@ -1,5 +1,4 @@
 from json import loads
-import time
 import openai
 from os.path import join, dirname, isdir
 from os import getenv, getcwd, mkdir
@@ -42,7 +41,6 @@ class Translator:
 
         except Exception as err:
             if retries > 0:
-                time.sleep(2)  # Wait for 2 seconds before retrying
                 return self._call_api(prompt, retries-1)
             else:
                 logger.error(f"Received an error while parsing the response from the API: {str(err)}\nWith response: {response}\nFor prompt: {prompt}")
