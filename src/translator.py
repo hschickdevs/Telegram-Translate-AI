@@ -1,4 +1,5 @@
 from json import loads
+import time
 import openai
 from os.path import join, dirname, isdir
 from os import getenv, getcwd, mkdir
@@ -19,30 +20,34 @@ class Translator:
         self.model = model
         openai.api_key = api_key
     
-    def _call_api(self, prompt: str) -> dict:
+    
+    def _call_api(self, prompt: str, retries: int = 3) -> dict:
         """
         Handles the call to the OpenAI API ChatCompletions endpoint, and the parsing of the response.
         
         Args:
             prompt (str): The formatted prompt string
+            retries (int): The number of times to retry if an error occurs. Default is 3.
 
         Returns:
             dict: The parsed response in the format of: {"success": bool, "message": str}
         """
-        response = openai.ChatCompletion.create(
-            model=self.model,
-            messages=[{"role": "user", "content": prompt}]
-        )
-        
-        # TODO: Handle 502 errors
-        print("Response:", response)
-        print("Response Content:", response["choices"][0]["message"]["content"])
-        
         try:
+            response = openai.ChatCompletion.create(
+                model=self.model,
+                messages=[{"role": "user", "content": prompt}]
+            )
+            
             return loads(response["choices"][0]["message"]["content"])
+
         except Exception as err:
-            logger.error(f"Received an error while parsing the response from the API: {str(err)}\nWith response: {response}\nFor prompt: {prompt}")
-            return {"success": False, "message": f"API response could not be loaded (see logs): {str(err)}"}
+            if retries > 0:
+                time.sleep(2)  # Wait for 2 seconds before retrying
+                return self._call_api(prompt, retries-1)
+            else:
+                logger.error(f"Received an error while parsing the response from the API: {str(err)}\nWith response: {response}\nFor prompt: {prompt}")
+                return {"success": False, "message": f"API response could not be loaded (see logs): {str(err)}"}
+
 
     def translate(self, text: str, source_lang: str, target_lang: str) -> dict:
         """

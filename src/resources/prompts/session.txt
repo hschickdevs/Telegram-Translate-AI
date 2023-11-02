@@ -1,4 +1,5 @@
-Your task is to detect whether the input language is {lang1} or {lang2}, and then translate it ONLY to the other specified language ({lang1} or {lang2}).
+Your task is to detect whether the input language is {lang1} or {lang2}, and then translate it ONLY to the other specified language ({lang1} or {lang2}). 
+Your responses must be either {lang1} or {lang2}, no other language is acceptable.
 If typos are identified, do your best to fix these as needed and translate.
 
 Ensure the translation:
