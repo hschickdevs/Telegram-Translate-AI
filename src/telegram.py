@@ -83,14 +83,14 @@ class TranslateBot(TeleBot):
             except Exception as err:
                 self.reply_to(message, f"*❌ Could not start session - {err}*", parse_mode='Markdown')
 
-        @self.message_handler(func=lambda message: True)  # This should be your last handler
+        @self.message_handler(# TODO: THIS DOESNT WORK)  # This should be your last handler
         def generic_handler(message):
             # Generic handler to check and handle active sessions
             chat_id = message.chat.id
             if chat_id in self.active_sessions:
                 lang1 = self.active_sessions[chat_id]['lang1']
                 lang2 = self.active_sessions[chat_id]['lang2']
-                text = message.text
+                text = extract_text(message)
                 
                 # Send initial "Processing translation..." message and store its message ID
                 processing_msg = self.reply_to(message, "*Translating, please wait... ⏳*", parse_mode='Markdown')
@@ -122,6 +122,14 @@ class TranslateBot(TeleBot):
                                             message_id=processing_msg_id,
                                             text=get_command_template('translate-failure').format(error=err),
                                             parse_mode='Markdown', reply_markup=markup)
+                    
+        def extract_text(message):
+            """Helper function to extract text based on message content type."""
+            if message.content_type == 'text':
+                return message.text
+            else:
+                # Handler for document and media captions
+                return message.caption
 
         @self.callback_query_handler(func=lambda call: call.data == 'quit_session')
         def end_session(call):
