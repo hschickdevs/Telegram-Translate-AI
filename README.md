@@ -104,9 +104,13 @@ Before you continue, you will need to do the following:
 
 1. Get an **OpenAI API key**. If you don't know how to do so, use [**this guide**](https://www.maisieai.com/help/how-to-get-an-openai-api-key-for-chatgpt) for reference.
 
-    > Before sure to review the [pricing](https://openai.com/pricing/) for OpenAI's API in deciding which model to use. The default model is `gpt-3.5-turbo`, which is the cheaper option.
+    > Before sure to review the [pricing](https://openai.com/pricing/) for OpenAI's API in deciding which model to use. The default model is `gpt-3.5-turbo`, which is the cheaper and faster option.
 
-2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference.
+2. Create a new **Telegram bot** and get the **bot token** using [**BotFather**](https://t.me/botfather). If you don't know how to do so, use [**this guide**](https://www.siteguarding.com/en/how-to-get-telegram-bot-api-token) for reference. Additionally, you will need to change the following settings in BotFather:
+
+    1. `/mybots` -> `<your_bot_name>` -> `Bot Settings` -> `Group Privacy` -> `Turn off`
+
+    2. `/mybots` -> `<your_bot_name>` -> `Bot Settings` -> `Allow Groups` -> `Turn on`
 
 ### Quick Setup
 

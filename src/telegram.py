@@ -97,8 +97,8 @@ class TranslateBot(TeleBot):
                     processing_msg_id = processing_msg.message_id
 
                     # Add a "Quit Session" button to the response
-                    markup = types.InlineKeyboardMarkup()
-                    markup.add(types.InlineKeyboardButton("Quit Session", callback_data="quit_session"))
+                    # markup = types.InlineKeyboardMarkup()
+                    # markup.add(types.InlineKeyboardButton("Quit Session", callback_data="quit_session"))
                     
                     try:
                         # Call Translator
@@ -111,14 +111,14 @@ class TranslateBot(TeleBot):
                             self.edit_message_text(chat_id=message.chat.id,
                                                 message_id=processing_msg_id,
                                                 text=text,
-                                                parse_mode='Markdown', reply_markup=markup)
+                                                parse_mode='Markdown')  # , reply_markup=markup
                         else:
                             raise Exception(data['message'])                            
                     except Exception as err:    
                         self.edit_message_text(chat_id=message.chat.id,
                                                 message_id=processing_msg_id,
                                                 text=get_command_template('translate-failure').format(error=err),
-                                                parse_mode='Markdown', reply_markup=markup)
+                                                parse_mode='Markdown')  # reply_markup=markup
             # else:
             #     self.send_message(chat_id, "You're not in an active translation session. Please start a session first.")
 
