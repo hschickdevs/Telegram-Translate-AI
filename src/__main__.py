@@ -19,7 +19,7 @@ def start_bot(bot_instance: TranslateBot):
 if __name__ == "__main__":
     handle_env()
     
-    bot = TranslateBot(getenv("BOT_TOKEN"), Translator(getenv("OPENAI_TOKEN")))
+    bot = TranslateBot(getenv("BOT_TOKEN"), Translator(getenv("OPENAI_TOKEN"), model=getenv("MODEL")))
     
     # Set the bot commands:
     user_commands = [types.BotCommand(command=command, description=description)
