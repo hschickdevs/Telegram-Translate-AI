@@ -83,45 +83,45 @@ class TranslateBot(TeleBot):
             except Exception as err:
                 self.reply_to(message, f"*❌ Could not start session - {err}*", parse_mode='Markdown')
 
-        @self.message_handler(# TODO: THIS DOESNT WORK)  # This should be your last handler
+        @self.message_handler(content_types=['text', 'photo', 'document', 'audio', 'video', 'voice', 'location', 'contact', 'sticker'])
         def generic_handler(message):
-            # Generic handler to check and handle active sessions
             chat_id = message.chat.id
             if chat_id in self.active_sessions:
-                lang1 = self.active_sessions[chat_id]['lang1']
-                lang2 = self.active_sessions[chat_id]['lang2']
                 text = extract_text(message)
-                
-                # Send initial "Processing translation..." message and store its message ID
-                processing_msg = self.reply_to(message, "*Translating, please wait... ⏳*", parse_mode='Markdown')
-                processing_msg_id = processing_msg.message_id
+                if text:
+                    lang1 = self.active_sessions[chat_id]['lang1']
+                    lang2 = self.active_sessions[chat_id]['lang2']
+                    
+                    # Send initial "Processing translation..." message and store its message ID
+                    processing_msg = self.reply_to(message, "*Translating, please wait... ⏳*", parse_mode='Markdown')
+                    processing_msg_id = processing_msg.message_id
 
-                # Add a "Quit Session" button to the response
-                markup = types.InlineKeyboardMarkup()
-                markup.add(types.InlineKeyboardButton("Quit Session", callback_data="quit_session"))
-                
-                try:
-                    # Call Translator
-                    data = self.translator.translate_session(text, language1=lang1, language2=lang2, started=True)
+                    # Add a "Quit Session" button to the response
+                    markup = types.InlineKeyboardMarkup()
+                    markup.add(types.InlineKeyboardButton("Quit Session", callback_data="quit_session"))
+                    
+                    try:
+                        # Call Translator
+                        data = self.translator.translate_session(text, language1=lang1, language2=lang2, started=True)
 
-                    # Update message based on translation success status if response from API is successful
-                    if data['success']:
-                        # template = get_command_template('translate-success')
-                        text = f"`{data['message']}`"
+                        # Update message based on translation success status if response from API is successful
+                        if data['success']:
+                            # template = get_command_template('translate-success')
+                            text = f"`{data['message']}`"
+                            self.edit_message_text(chat_id=message.chat.id,
+                                                message_id=processing_msg_id,
+                                                text=text,
+                                                parse_mode='Markdown', reply_markup=markup)
+                        else:
+                            raise Exception(data['message'])                            
+                    except Exception as err:    
                         self.edit_message_text(chat_id=message.chat.id,
-                                               message_id=processing_msg_id,
-                                               text=text,
-                                            #    text=template.format(from_lang=from_lang,
-                                            #                         to_lang=to_lang,
-                                            #                         translated_text=data['message']),
-                                               parse_mode='Markdown', reply_markup=markup)
-                    else:
-                        raise Exception(data['message'])                            
-                except Exception as err:    
-                    self.edit_message_text(chat_id=message.chat.id,
-                                            message_id=processing_msg_id,
-                                            text=get_command_template('translate-failure').format(error=err),
-                                            parse_mode='Markdown', reply_markup=markup)
+                                                message_id=processing_msg_id,
+                                                text=get_command_template('translate-failure').format(error=err),
+                                                parse_mode='Markdown', reply_markup=markup)
+            # else:
+            #     self.send_message(chat_id, "You're not in an active translation session. Please start a session first.")
+
                     
         def extract_text(message):
             """Helper function to extract text based on message content type."""
