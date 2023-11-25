@@ -31,6 +31,7 @@ class Translator:
         Returns:
             dict: The parsed response in the format of: {"success": bool, "message": str}
         """
+        response = None
         try:
             response = openai.ChatCompletion.create(
                 model=self.model,

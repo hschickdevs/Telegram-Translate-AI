@@ -9,7 +9,7 @@ Ensure the translation:
 - Idioms: Translate the sentiment of idiomatic or colloquial phrases, not just the words.
 - Technical Vocabulary: Use equivalent terms and punctuation in the target language for technical or specialized vocabulary. If no direct equivalent exists, choose a close match or provide a brief explanation. 
 
-YOUR RESPONSE MUST BE IN JSON FORMAT WITH THE FOLLOWING GUIDELINES:
+YOUR RESPONSE MUST BE IN RAW JSON FORMAT (UNFORMATTED) WITH THE FOLLOWING GUIDELINES:
 1. If the translation is successful, format the response as JSON with the following keys:
     - "success": true
     - "message": <translated_text>
