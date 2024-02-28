@@ -335,8 +335,6 @@ However, any changes you make must also be open-sourced under the same license. 
 
 **Telegram:** [@hschickdevs](https://t.me/hschickdevs)
 
-**Email:** [hschickdevs@gmail.com](mailto:hschickdevs@gmail.com)
-
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 
