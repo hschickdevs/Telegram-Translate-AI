@@ -62,6 +62,8 @@
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#quick-setup">Quick Setup</a></li>
         <li><a href="#advanced-setup">Advanced Setup</a></li>
+        <ul><li><a href="#option-1-run-locally-using-docker">Option 1: Run Locally using Docker</a></li>
+        <li><a href="#option-2-run-locally-from-source">Option 2: Run Locally from Source</a></li></ul>
       </ul>
     </li>
     <li><a href="#bot-commands">Bot Commands</a></li>
@@ -121,7 +123,45 @@ Although there isn't a completely simple way to set up this bot, the easiest way
 
 ### Advanced Setup
 
-If you'd prefer to deploy the bot manually, follow the folowing steps in your preferred local or cloud environment. For the sake of this guide, we will be deploying the bot locally in a UNIX environment (On a MacOS or Linux machine):
+If you'd prefer to deploy the bot manually, follow the folowing steps in your preferred local or cloud environment. For the sake of this guide, we will be deploying the bot locally from source and docker in a UNIX environment (On a MacOS or Linux machine).
+
+#### Option 1: Run Locally using Docker
+
+> If you don't have docker installed, you can use [Option 2](#option-2-run-locally-from-source) to run the bot locally from source.
+
+1. Pull the Docker image from Docker Hub:
+
+   ```sh
+   docker pull hschickdevs/telegram-translate-ai
+   ```
+
+2. Run the Docker image:
+
+    You will need to specify your OpenAI API key and Telegram bot token as environment variables. Additionally, you can specify the GPT model to use (e.g., `gpt-3.5-turbo` or `gpt-4`, or any desired model [listed on their website](https://platform.openai.com/docs/models/continuous-model-upgrades)). You can leave the `MODEL` environment variable empty to use the default model (3.5 turbo).
+
+    ```sh
+    docker run -d --name telegram-translate-ai \
+      -e OPENAI_TOKEN=<YOUR_APIKEY> \
+      -e BOT_TOKEN=<YOUR_TELEGRAM_BOT_TOKEN> \
+      -e MODEL=<GPT-MODEL> \
+      hschickdevs/telegram-translate-ai
+    ```
+
+  3. If you want to see the logs, you can use the following command:
+
+      ```sh
+      docker logs -f telegram-translate-ai
+      ```
+
+      You can also attach to the container to see the logs in real-time:
+
+      ```sh
+      docker attach telegram-translate-ai
+      ```
+
+      If you don't see any errors, the bot should now be running! Head to your bot on Telegram and test it out.
+
+#### Option 2: Run Locally from Source
 
 1. Before you begin, make sure you have Python 3.9+ and pip installed on your system.
 
