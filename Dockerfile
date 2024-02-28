@@ -35,7 +35,7 @@ CMD ["python3", "-m", "src"]
 # docker rmi -f $(docker images -aq)
 
 # ------- Docker Pull & Run Commands: -------
-# docker pull hschickdevs/telegram-translate-ai
+# docker pull hschickdevs/telegram-translate-ai:latest
 # docker run -d --name telegram-translate-ai \
 #   -e OPENAI_TOKEN=<YOUR_APIKEY> \
 #   -e BOT_TOKEN=<YOUR_TELEGRAM_BOT_TOKEN> \
