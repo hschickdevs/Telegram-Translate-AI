@@ -32,3 +32,13 @@ CMD ["python3", "-m", "src"]
 # docker run --env-file .env bot
 # docker tag translate-bot hschickdevs/telegram-translate-ai:latest
 # docker push hschickdevs/telegram-translate-ai:latest
+# docker rmi -f $(docker images -aq)
+
+# ------- Docker Pull & Run Commands: -------
+# docker pull hschickdevs/telegram-translate-ai:latest
+# docker run -d --name telegram-translate-ai \
+#   -e OPENAI_TOKEN=<YOUR_APIKEY> \
+#   -e BOT_TOKEN=<YOUR_TELEGRAM_BOT_TOKEN> \
+#   -e MODEL=<GPT-MODEL> \
+#   hschickdevs/telegram-translate-ai
+# docker attach telegram-translate-ai
