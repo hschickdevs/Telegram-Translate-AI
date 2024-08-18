@@ -42,7 +42,7 @@
 
         * **BOT_TOKEN**: Set to your Telegram bot token which was also created in the prerequisite step.
 
-        * **MODEL**: OPTIONALLY - You can set this environment variable if you'd like to use a different model. the default is `gpt-3.5-turbo`, but you can set this to `gpt-4` if applicable to your account.
+        * **MODEL**: OPTIONALLY - You can set this environment variable if you'd like to use a different model. the default is `gpt-4o-mini`, but you can set this to `gpt-4o` if applicable to your account.
 
     8. Verify that your settings in the **Configure container** look like this (The environment variables in the image are for example only, not real), then click **SELECT** at the bottom to save the settings:
 

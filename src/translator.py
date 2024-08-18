@@ -9,13 +9,13 @@ from .logger import logger
 
 
 class Translator(OpenAI):
-    def __init__(self, api_key: str, model: str = "gpt-3.5-turbo"):
+    def __init__(self, api_key: str, model: str = "gpt-4o-mini"):
         """
         Initializes the translator object.
         
         Args:
             api_key (str): Your OpenAI API key
-            model (str, optional): The OpenAI model to use. Defaults to "gpt-3.5-turbo".
+            model (str, optional): The OpenAI model to use. Defaults to "gpt-4o-mini".
         """
         super().__init__(api_key=api_key)
         self.model = model
