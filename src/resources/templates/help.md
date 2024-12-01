@@ -10,6 +10,8 @@ Here are the commands you can use:
   - _Usage_: `/session <language 1> - <language 2>`
   - _Example_: `/session English - Spanish (Mexico City Dialect)`
 
-To end a continuous session, click the "Quit Session" button on the inline keyboard below any of the translated messages.
+*`/quit`* or *`/q`* - 🛑 End the current translation session.
+
+*`/models`* - 🤖 View the available AI models and set the default model for your account.
 
 *Happy Translating! 🌐*

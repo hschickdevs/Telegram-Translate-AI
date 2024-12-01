@@ -1,0 +1,5 @@
+models:
+  gpt-4o:
+    description: "More Accurate, Slower & More Expensive"
+  gpt-4o-mini:
+    description: "Less Accurate, Faster & Cheaper"
