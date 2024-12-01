@@ -195,13 +195,13 @@ If you'd prefer to deploy the bot manually, follow the folowing steps in your pr
 
 2. Run the Docker image:
 
-    You will need to specify your OpenAI API key and Telegram bot token as environment variables. Additionally, you can specify the GPT model to use (e.g., `gpt-4o-mini` or `gpt-4o`, or any desired model [listed on their website](https://platform.openai.com/docs/models/continuous-model-upgrades)). You can leave the `MODEL` environment variable empty to use the default model (3.5 turbo).
+    You will need to specify your OpenAI API key and Telegram bot token as environment variables. Additionally, you can specify the GPT model to use (e.g., `gpt-4o-mini` or `gpt-4o`, or any desired model [listed on their website](https://platform.openai.com/docs/models/continuous-model-upgrades)). You can leave the `DEFAULT_MODEL` environment variable empty to use the default model (3.5 turbo).
 
     ```sh
     docker run -d --name telegram-translate-ai \
       -e OPENAI_TOKEN=<YOUR_APIKEY> \
       -e BOT_TOKEN=<YOUR_TELEGRAM_BOT_TOKEN> \
-      -e MODEL=<GPT-MODEL> \
+      -e DEFAULT_MODEL=<GPT-MODEL> \
       hschickdevs/telegram-translate-ai
     ```
 
