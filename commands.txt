@@ -1,4 +1,6 @@
 help - Get information about bot commands and their usages
 translate - (or /t) Translate text | Usage: /t <source lang> - <target lang> - <text>
 session - (or /s) Start a continuous translation session | Usage: /session <language 1> - <language 2>
+models - (or /m) List available models
+quit - (or /q) Quit the current translation session
 contact - Get in touch with the developer

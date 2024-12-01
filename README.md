@@ -57,6 +57,7 @@
       <a href="#about-the-project">About The Project</a>
     </li>
     <li>
+    <li><a href="#bot-commands">Bot Commands</a></li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
@@ -66,7 +67,6 @@
         <li><a href="#option-2-run-locally-from-source">Option 2: Run Locally from Source</a></li></ul>
       </ul>
     </li>
-    <li><a href="#bot-commands">Bot Commands</a></li>
     <li><a href="#roadmap">Roadmap</a></li>
     <li><a href="#contributing">Contributing</a></li>
     <li><a href="#license">License</a></li>
@@ -79,6 +79,8 @@
 <!-- ABOUT THE PROJECT -->
 ## About the Project
 
+> **Version 2.2.0 Released** - See [CHANGELOG.md](docs/CHANGELOG.md) for details
+
 ![PRODUCT DEMO/GIF](docs/demo.gif)
 
 This Telegram bot leverages the power of OpenAI's GPT language models to provide advanced text translations. Unlike traditional translation services like Google Translate, this bot offers several unique advantages:
@@ -90,6 +92,62 @@ This Telegram bot leverages the power of OpenAI's GPT language models to provide
 3. **Typo Detection**: The advanced AI model automatically detects typos and corrects them, ensuring the translation is as accurate as possible.
 
 > 💡 **Tip:** This bot can be used in group chats as well as private chats for live translations!
+
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+<!-- BOT COMMANDS -->
+## Bot Commands
+
+#### `/help`
+
+Returns all available commands and their descriptions.
+
+___
+
+#### `/t <source (context)> - <target (context)> - <text>`
+
+(Use **/t** or **/translate**) 📖 Translate text from one language to another. 
+
+> The first two "-" symbols are used as the delimiter/separator for the source language & context, target language & context, and text. As long as you provide the first two "-" symbols between source & target and target & text, you can use as many as you want in the text.
+
+| Parameter          | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| source (context)   | The source language and context (e.g., dialect) from which you want to translate.                |
+| target (context)   | The target language and context (e.g., dialect) to which you want to translate.                  |
+| text               | The text you want to translate.                                                                  |
+
+_For example, the following command translates English to Spanish in the dialect of Madrid, Spain (as opposed to Mexico City dialect):_
+
+`/t English - Spanish (Madrid Dialect) - Hi there, I'm a bot!`
+
+___
+
+#### `/s <language1 (context)> - <language2 (context)>`
+
+(Use **/s** or **/session**) 🔄 Start a continuous translation session. In this mode, every following message you send will be automatically language detected and translated to the other language in the pair.
+
+| Parameter          | Description                                                                                     |
+|--------------------|-------------------------------------------------------------------------------------------------|
+| language1 (context)   | The first language and context (e.g., dialect) in the translation pair.   |
+| language2 (context)   | The second language and context (e.g., dialect) in the translation pair.     |
+
+_For example, the following command starts a continuous translation session with English and Spanish in the Mexico City dialect:_
+
+`/session English - Spanish (Mexico City Dialect)`
+
+___
+
+#### `/quit`
+
+(Use **/q** or **/quit**) 🚫 End the active continuous translation session in a chat.
+
+___
+
+#### `/models`
+
+(Use **/m** or **/models**) 🤖 List and choose from all available language models.
 
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -201,15 +259,12 @@ If you'd prefer to deploy the bot manually, follow the folowing steps in your pr
    pip install -r requirements.txt
    ```
 
-3. Set environment variables. The following environment variables should be set:
+3. Set environment variables. The following environment variables are required:
 
    ```sh
    OPENAI_TOKEN=<YOUR_APIKEY>
    BOT_TOKEN=<YOUR_TOKEN>
-   MODEL=<GPT-MODEL>
    ```
-
-   > **Note:** The `MODEL` variable is optional and defaults to `gpt-4o-mini`. If you have the plus subscription, you can set this to `gpt-4o` for better results.
 
    To set your environment variables, rename the file called [`.env.example`](/.env.example) in the root directory of the project to `.env`, and then replace the value contents with your tokens and model.
 
@@ -224,53 +279,6 @@ If you'd prefer to deploy the bot manually, follow the folowing steps in your pr
     > **Note:** If you are using Windows, you may need to use `python -m src` or `py -m src` instead.
 
 If you don't see any errors, the bot should now be running! Head to your bot on Telegram and test it out.
-
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
-
-
-
-<!-- USAGE EXAMPLES -->
-## Bot Commands
-
-#### `/help`
-
-Returns all available commands and their descriptions.
-
-___
-
-#### `/t <source (context)> - <target (context)> - <text>`
-
-(Use **/t** or **/translate**) 📖 Translate text from one language to another. 
-
-> The first two "-" symbols are used as the delimiter/separator for the source language & context, target language & context, and text. As long as you provide the first two "-" symbols between source & target and target & text, you can use as many as you want in the text.
-
-| Parameter          | Description                                                                                     |
-|--------------------|-------------------------------------------------------------------------------------------------|
-| source (context)   | The source language and context (e.g., dialect) from which you want to translate.                |
-| target (context)   | The target language and context (e.g., dialect) to which you want to translate.                  |
-| text               | The text you want to translate.                                                                  |
-
-_For example, the following command translates English to Spanish in the dialect of Madrid, Spain (as opposed to Mexico City dialect):_
-
-`/t English - Spanish (Madrid Dialect) - Hi there, I'm a bot!`
-
-___
-
-#### `/s <language1 (context)> - <language2 (context)>`
-
-(Use **/s** or **/session**) 🔄 Start a continuous translation session. In this mode, every following message you send will be automatically language detected and translated to the other language in the pair.
-
-| Parameter          | Description                                                                                     |
-|--------------------|-------------------------------------------------------------------------------------------------|
-| language1 (context)   | The first language and context (e.g., dialect) in the translation pair.   |
-| language2 (context)   | The second language and context (e.g., dialect) in the translation pair.     |
-
-_For example, the following command starts a continuous translation session with English and Spanish in the Mexico City dialect:_
-
-`/session English - Spanish (Mexico City Dialect)`
-
-🛑 To end a continuous session, click the "Quit Session" button on the inline keyboard below any of the translated messages.
-
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

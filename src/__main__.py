@@ -10,20 +10,24 @@ from telebot import types
 
 RESTART_DELAY = 5  # The number of seconds to wait before restarting the bot after an error is thrown
 
+
 def start_bot(bot_instance: TranslateBot):
     try:
         bot_instance.polling()
     except Exception as err:
         logger.error(f"An error occurred while polling: {err}", exc_info=err)
 
+
 if __name__ == "__main__":
     handle_env()
-    
-    bot = TranslateBot(getenv("BOT_TOKEN"), Translator(getenv("OPENAI_TOKEN"), model=getenv("MODEL")))
-    
+
+    bot = TranslateBot(getenv("BOT_TOKEN"), Translator(getenv("OPENAI_TOKEN")))
+
     # Set the bot commands:
-    user_commands = [types.BotCommand(command=command, description=description)
-                     for command, description in get_commands().items()]
+    user_commands = [
+        types.BotCommand(command=command, description=description)
+        for command, description in get_commands().items()
+    ]
     bot.set_my_commands(user_commands)
 
     # Start the bot
